@@ -4,9 +4,8 @@
 
 ## Requirments
 
-1.Requires java 1.8
-
-2.Recent maven
+1. Requires java 1.8
+2. Recent maven
 
 ## Compile and Run
 
