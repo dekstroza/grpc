@@ -1,6 +1,4 @@
-# grpc
-
-## Java GRPC snippet
+# Java GRPC snippet
 
 ## Requirments
 
