@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.dekstroza.grpcsnippet";
+option java_outer_classname = "AuthService";
+option objc_class_prefix = "HLW";
+
+package accesscontrol;
+
+service Rbac {
+    rpc authenticate (RbacAuthRequest) returns (AuthResponse) {
+    }
+}
+
+service Tbac {
+    rpc authenticate (TbacAuthRequest) returns (AuthResponse) {
+    }
+}
+
+message RbacAuthRequest {
+    string name = 1;
+}
+message TbacAuthRequest {
+    string name = 1;
+}
+
+message AuthResponse {
+    string message = 1;
+}
