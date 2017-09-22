@@ -124,7 +124,10 @@ public class TwitterApi {
     }
 
     /**
-     * Find all tweets mentioning given keyword
+     * Find all tweets mentioning given keyword.
+     * Twitter will return json, query the json using JsonPath, extracting from statuses, attribute screen_name from users.
+     * In second query extract from statuses, text of all tweets.
+     * Json is read and parsed only once, having it parsed and read we can query it multiple times.
      *
      * @param keyword
      *            to look in all tweets
@@ -133,7 +136,7 @@ public class TwitterApi {
     public List<Tweet> searchTwitter(final String keyword) {
         try {
             OkHttpClient client = new OkHttpClient();
-            Request request = new Builder().url(format(TWITTER_SEARCH_URL, URLEncoder.encode("#"+keyword, "UTF-8"))).addHeader("Authorization",
+            Request request = new Builder().url(format(TWITTER_SEARCH_URL, URLEncoder.encode("#" + keyword, "UTF-8"))).addHeader("Authorization",
                        format("Bearer %s", getTwitterBearerToken())).build();
             long start = System.nanoTime();
             final ReadContext ctx = parse(client.newCall(request).execute().body().byteStream());
@@ -153,7 +156,7 @@ public class TwitterApi {
     }
 
     /**
-     * Return average duration of twitter search
+     * Return average duration of twitter search. Divide total search time with number of queries made to twitter api.
      *
      * @return average search duration in milliseconds.
      */

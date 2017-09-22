@@ -14,3 +14,4 @@ target/
 hs_err_pid*
 .DS_Store
 wpspins/
+twitter-creds.properties
